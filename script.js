@@ -88,7 +88,7 @@ function findMultiWordAnagrams(letters, wordList, maxWords = 3) {
     const seen = new Set();
     const MAX_RESULTS = 100;
     const startTime = Date.now();
-    const TIME_LIMIT = 3000; // Max 3 sekunder
+    const TIME_LIMIT = maxWords > 3 ? 15000 : 3000; // 15s för långa, 3s för standard
 
     // Rekursiv sökning
     function search(remaining, combo, startIdx, depth) {
@@ -197,7 +197,13 @@ function searchAnagrams() {
         return;
     }
 
-    resultsDiv.innerHTML = '<p class="loading">Söker...</p>';
+    // Kolla om långa kombinationer är aktiverat
+    const longCombos = document.getElementById('longCombos').checked;
+    const maxWords = longCombos ? 5 : 3;
+
+    resultsDiv.innerHTML = longCombos
+        ? '<p class="loading">Söker långa kombinationer – kan ta upp till 15 sekunder...</p>'
+        : '<p class="loading">Söker...</p>';
 
     // Kör sökningen asynkront så att "Söker..." hinner visas
     setTimeout(() => {
@@ -214,7 +220,7 @@ function searchAnagrams() {
             });
 
             // Multi-ord-kombinationer
-            const combos = findMultiWordAnagrams(input, wordList);
+            const combos = findMultiWordAnagrams(input, wordList, maxWords);
             combos.forEach(words => {
                 multiResults.push({ words, language: lang });
             });
@@ -248,6 +254,14 @@ document.querySelectorAll('input[name="language"]').forEach(checkbox => {
             searchAnagrams();
         }
     });
+});
+
+// Sök igen när långa kombinationer ändras
+document.getElementById('longCombos').addEventListener('change', () => {
+    const input = document.getElementById('letterInput').value;
+    if (input.trim()) {
+        searchAnagrams();
+    }
 });
 
 // Initial meddelande

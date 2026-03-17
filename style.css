@@ -113,6 +113,19 @@ button:active {
     height: 18px;
 }
 
+.options-section {
+    margin-bottom: 20px;
+    padding: 12px 20px;
+    background: #f0ecf9;
+    border-radius: 8px;
+    border: 1px solid #d4c8ef;
+}
+
+.options-section .checkbox-label {
+    color: #5b3d99;
+    font-size: 0.95rem;
+}
+
 .results {
     min-height: 200px;
     padding: 20px;

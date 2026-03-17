@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anagramfinder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Anagramfinder</h1>
+        <p class="subtitle">Skriv in bokstäver och hitta anagram</p>
+        
+        <div class="input-section">
+            <input 
+                type="text" 
+                id="letterInput" 
+                placeholder="Skriv in bokstäver här..."
+                maxlength="20"
+            >
+            <button id="searchBtn">Sök anagram</button>
+        </div>
+
+        <div class="language-selector">
+            <label>Språk:</label>
+            <div class="checkbox-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="language" value="sv" checked>
+                    Svenska
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" name="language" value="da">
+                    Danska
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" name="language" value="en">
+                    Engelska
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" name="language" value="nl">
+                    Nederländska
+                </label>
+            </div>
+        </div>
+
+        <div id="results" class="results">
+            <p class="info-text">Skriv in bokstäver för att börja söka</p>
+        </div>
+    </div>
+
+    <script src="wordlists.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

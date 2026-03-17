@@ -173,6 +173,48 @@ button:active {
     font-style: italic;
 }
 
+.results-heading {
+    color: #333;
+    font-size: 1.1em;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #667eea;
+}
+
+.combo-heading {
+    margin-top: 24px;
+}
+
+.combo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.combo-result {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    background: white;
+    border: 2px solid #a78bfa;
+    border-radius: 6px;
+}
+
+.combo-words {
+    font-weight: 600;
+    color: #6d28d9;
+    font-size: 1em;
+}
+
+.combo-word {
+    display: inline-block;
+    background: #f3f0ff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin: 2px 0;
+}
+
 @media (max-width: 600px) {
     .container {
         padding: 20px;
